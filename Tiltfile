@@ -1,5 +1,5 @@
 def blorgly():
-  return composite_service({"blorg_backend": blorg_backend(), "blorg_frontend": blorg_frontend()})
+  return composite_service([blorg_backend, blorg_frontend])
 
 def blorg_backend():
   entrypoint = '/go/bin/blorg-backend'
