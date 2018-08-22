@@ -3,7 +3,7 @@ def blorgly():
 
 def blorg_backend():
   entrypoint = '/go/bin/blorg-backend'
-  image = build_docker_image('../blorg-backend/Dockerfile.base', 'blorg.io/blorgdev/blorg-backend', entrypoint)
+  image = build_docker_image('Dockerfile.base', 'blorg.io/blorgdev/blorg-backend', entrypoint)
   repo = git_repo('../blorg-backend')
   src_dir = '/go/src/github.com/windmilleng/blorg-backend'
   image.add_mount(src_dir, repo)
@@ -13,7 +13,7 @@ def blorg_backend():
 
 def blorg_frontend():
   entrypoint = '/go/bin/blorg-frontend --backendAddr lb-blorg-be:8080'
-  image = build_docker_image('../blorg-frontend/Dockerfile.base', 'blorg.io/blorgdev/blorg-frontend', entrypoint)
+  image = build_docker_image('Dockerfile.base', 'blorg.io/blorgdev/blorg-frontend', entrypoint)
   repo = git_repo('../blorg-frontend')
   src_dir = '/go/src/github.com/windmilleng/blorg-frontend'
   image.add_mount(src_dir, repo)
